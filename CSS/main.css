@@ -1,4 +1,4 @@
-* {
+/** {
 	margin: 0;
 	padding: 0;
 	-webkit-box-sizing: border-box;
@@ -30,8 +30,6 @@ i{
 	margin-top: 20px;
 }
 
-
-
 .principal .formulario input[type=text] {
 	margin-bottom: 20px;
 	padding: 10px;
@@ -47,7 +45,7 @@ i{
 }
  
 /* - Tareas - */
-.tareas .lista {
+/*.tareas .lista {
 	list-style: none;
 }
 .tareas .lista li a {
@@ -63,8 +61,7 @@ i{
 
 .sincolor{
     background-color: none;
-}
-
+} */
 
 
 
