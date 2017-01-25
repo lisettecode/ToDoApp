@@ -1,110 +1,65 @@
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-	<meta charset="utf-8"/>
-	<title>To Do App</title>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-   <link rel="stylesheet" href="css/font-awesome.css">
-   <link rel="stylesheet" href="css/animate.min.css">
-   <link rel="stylesheet" href="css/animate.css">
-    <link rel="shortcut icon" href="icon.ico">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="css/main.css">
-   <link rel="stylesheet" href="jquery/jquery-3.1.1.min.js">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Document</title>
 </head>
-
 <body>
-
-	<div class="container">
-		<div class="row">
-			
-				<div class="titulo"><h1 class="text-center">To Do App</h1></div> <br> <br>
-					<div class="form-group">
-  <textarea class="form-control" rows="5" id="tareaInput"></textarea>
-</div>
-					<div class="form-group">
-						<button type="button" class="btn btn-primary" id="btn-agregar" value="Añadir Tarea" onclick="adicionar()">Añadir tarea</button>
-					</div> <br>
-                            <div class="lista" id="lista"></div>
+	<div class="header option animated zoomIn">
+		<div class="container">
+			<div class="row text-center">
+				<h4>TODO APP</h4>
+			</div>
 		</div>
 	</div>
-	    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    
-
-
+	<div class="agregar">
+		<div class="container">
+			<div class="row">
+				<textarea class="form-control" rows="5"  placeholder="Añade tu nueva tarea" id="tarea"	></textarea>
+				<button class="btn  btn-primary  submit-btn" id="add" onClick="aniadir()"  type="submit"><i class="fa fa-plus" aria-hidden="true"></i> Añadir tarea
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="tareas" id="list">
+		<div class="container " >
+			<div class="row "  >
+			 <div id="listaTareas">
+				
+			</div>
+		</div>
+	</div>
+	
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+.header
+    {
+        background-color:#E7E4E5;
     }
-
-    .titulo{
-        background-color: gainsboro;
-        width: 100%; 
-    }
-
-    li{
-         background-color: gainsboro;
-        width: 100%;
-        padding: 10px;
-        list-style: none;
-    }
-
-    i{
-        padding-left: 20px;
-    }
-
-    .lista li input {
-        padding-left: 10px;
-    }
-
-    .mg-top {
-        margin-top: 20px;
-    }
-
-
-
-    .principal .formulario input[type=text] {
-        margin-bottom: 20px;
-        padding: 10px;
+textarea
+    {
         width: 100%;
     }
-
-    .principal .formulario input[type=text].error {
-        border: 5px solid #D32F2F;
-        color: red;
+.btn{ 
+    margin-top: 10px; 
+    color: white;
+    background-color:#4178AB;}
+.agregar{
+    margin: 10px;
     }
-    .principal .formulario .boton:hover {
-        border: 1px solid #fff;
-    }
-
-    /* - Tareas - */
-    .tareas .lista {
-        list-style: none;
-    }
-    .tareas .lista li a {
-        color: #212121;
-        display: block;
-        padding: 20px 0;
-        text-decoration: none;
-    }
-
-    .tareas .lista li a:hover {
-        text-decoration: line-through;
-    }
-
-    .sincolor{
-        background-color: none;
-    }  
+.list{
+    margin: 10px;  
+    background-color:#E7E4E5; 
+    padding: 10px 10px; 
+}
 </style>
 
-
+	<script type='text/javascript' src='js/main.js'></script>
 </body>
 </html>
-

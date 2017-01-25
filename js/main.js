@@ -1,104 +1,41 @@
-(function(){
-	// Variables
-	var lista = document.getElementById("lista");
-		tareaInput = document.getElementById("tareaInput");
-		btnNuevaTarea = document.getElementById("btn-agregar");
- 
-	// Funciones
-	var agregarTarea = function(){
-		var tarea = tareaInput.value;
-			nuevaTarea = document.createElement("li");
-			enlace = document.createElement("a");
-            checkbox = document.createElement("input")
-            checkbox.type="checkbox";
-            checkbox.className = "check";
-            icon = document.createElement("i");
-            icon.className = "fa fa-trash-o pull-right"; 
-			contenido = document.createTextNode(tarea);
- 
-		if (tarea === "") {
-			tareaInput.setAttribute("placeholder", "Agrega una tarea valida");
-			tareaInput.className = "error";
-            //alert("llena el area de texto");
-			return false;
-		}
- 
-		// Agregamos el contenido al enlace
-		enlace.appendChild(checkbox);
-        enlace.appendChild(contenido);
-		// Le establecemos un atributo href
-        enlace.setAttribute=("href","#");
-		//enlace.type="checkbox";//
-        enlace.appendChild(icon);
-		// Agrergamos el enlace (a) a la nueva tarea (li)
-		nuevaTarea.appendChild(enlace);
-		// Agregamos la nueva tarea a la lista
-		lista.appendChild(nuevaTarea);
-    
- 
-		tareaInput.value = "";
-        
-        for (var i = 0; i <= lista.children.length -1; i++) {
-			icon.parentNode.addEventListener("click", function(){
-				var elim = nuevaTarea.parentNode;
-                this.parentNode.removeChild(this);
-			});
-		}
- 
-	};
-	var comprobarInput = function(){
-		tareaInput.className = "form-control";
-		teareaInput.setAttribute("placeholder", "Agrega tu tarea");
-	};
- 
-	var eleminarTarea = function(){
-		this.parentNode.removeChild(this);
-	};
- 
-	// Eventos
- 
-	// Agregar Tarea
-	btnNuevaTarea.addEventListener("click", agregarTarea);
- 
-	// Comprobar Input
-	tareaInput.addEventListener("click", comprobarInput);
- 
-	// Borrando Elementos de la lista
-	for (var i = 0; i <= lista.children.length -1; i++) {
-		icon.parentNode.addEventListener("click", eleminarTarea);
-	}
-}());
+var lista = document.getElementById("listaTareas");
+function crearTareas(container,tarea)
+{
+	var div=document.createElement('div');
+	div.className="list , checkbox , option animated fadeInUp";
+	var icono=document.createElement('i')
+	icono.className="fa , fa-trash-o , icono , pull-right";
+	var label=document.createElement('label'); 
+	var checkbox=document.createElement('input');
+	checkbox.type = "checkbox";
+	div.appendChild(label);
+	label.appendChild(checkbox);
+	label.appendChild(document.createTextNode(tarea));
+	div.appendChild(icono);
+	container.appendChild(div);	
+	icono.addEventListener('click', eliminar); 
+	checkbox.addEventListener("click", chequear);
+}
+function aniadir()
+{
+	var tarea = document.getElementById("tarea");
+	if(tarea.value.length == 0 )
+		alert("Debes ingresar una tarea");
+	else
+		crearTareas(lista,tarea.value);
 
-
-
- /*Function adicionar (lista, tarea) {
-        var total=0; total++;
-        var list = document.createElement("li");
-        list.id="doTask";
-        var checkbox=document.createElement("input");
-        checkbox.type="checkbox";
-        checkbox.id="check";
-        var texto= document.createElement("span");
-        texto.id="task";
-        var icon = document.createElement("i");
-        icon.className="fa fa-trash-o";
-        
-        list.appendChild(checkbox);
-        list.appendChild(texto);
-        list.appendChild(icon);
-        lista.appendChild(list);
-        tareaInput.focus();
-        tareaInput.value="";
-        
-    }
-
-var comprobarInput = function(){
-		tareaInput.className = "";
-		teareaInput.setAttribute("placeholder", "Agrega tu tarea");
-	};
-// Comprobar Input
-	tareaInput.addEventListener("click", comprobarInput);
-
-var btnNuevaTarea = document.getElementById("btn-agregar");    
-btnNuevaTarea.addEventListener("click", adicionar);*/
-
+	tarea.focus();
+	tarea.value="";
+}
+function eliminar(evt)
+{
+    lista.removeChild(evt.target.parentNode);  
+}
+function chequear(evt)
+{
+	var hijo=evt.target.parentNode;
+	if(evt.target.checked)
+		hijo.setAttribute("style","text-decoration:line-through");
+	else
+		hijo.setAttribute("style","text-decoration:none");
+}
