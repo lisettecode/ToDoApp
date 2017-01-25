@@ -19,6 +19,7 @@
 		if (tarea === "") {
 			tareaInput.setAttribute("placeholder", "Agrega una tarea valida");
 			tareaInput.className = "error";
+            //alert("llena el area de texto");
 			return false;
 		}
  
@@ -46,7 +47,7 @@
  
 	};
 	var comprobarInput = function(){
-		tareaInput.className = "";
+		tareaInput.className = "form-control";
 		teareaInput.setAttribute("placeholder", "Agrega tu tarea");
 	};
  
